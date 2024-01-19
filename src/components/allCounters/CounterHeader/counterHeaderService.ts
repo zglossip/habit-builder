@@ -1,22 +1,20 @@
-import {useRouter} from 'vue-router'
+import { useRouter } from "vue-router";
 
 export interface CounterHeaderService {
-    navigate: () => void;
+  navigate: () => void;
 }
 
-export const INJECTION_KEY = Symbol()
+export const INJECTION_KEY = Symbol();
 
-export const useCounterHeaderService = (
-    id: number
-): CounterHeaderService => {
-    const $router = useRouter()
+export const useCounterHeaderService = (id: number): CounterHeaderService => {
+  const $router = useRouter();
 
-    const navigate = () => {
-        $router.push({
-            name: 'ViewCounter',
-            params: {id}
-        })
-    }
+  const navigate = () => {
+    $router.push({
+      name: "ViewCounter",
+      params: { id },
+    });
+  };
 
-    return {navigate}
-}
+  return { navigate };
+};

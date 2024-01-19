@@ -1,18 +1,18 @@
-import {useRouter} from 'vue-router'
+import { useRouter } from "vue-router";
 interface AddCounterButtonService {
-    navigate: () => void;
+  navigate: () => void;
 }
 
 export const INJECTION_KEY = Symbol();
 
-export const useAddCounterButtonService = ():AddCounterButtonService => {
-    const $router = useRouter()
+export const useAddCounterButtonService = (): AddCounterButtonService => {
+  const $router = useRouter();
 
-    const navigate = () => {
-        $router.push({
-            name: 'CreateCounter'
-        })
-    }
+  const navigate = () => {
+    $router.push({
+      name: "CreateCounter",
+    });
+  };
 
-    return {navigate}
-}
+  return { navigate };
+};
