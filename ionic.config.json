@@ -1,0 +1,7 @@
+{
+  "name": "habit-builder",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
