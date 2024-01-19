@@ -5,6 +5,11 @@ import {
   useAddCounterButtonService,
 } from "./addCounterButtonService";
 import { add } from "ionicons/icons";
+import {
+  IonFab,
+  IonFabButton,
+  IonIcon,
+} from "@ionic/vue";
 
 //SERVICE
 const { navigate } = inject(INJECTION_KEY, useAddCounterButtonService)();

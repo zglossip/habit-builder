@@ -17,6 +17,7 @@ export const stubCounterListItemService = () => {
 const meta = {
   title: "All Counters/CounterListItem",
   component: CounterListItem,
+  excludeStories: /stubCounterListItemService/,
   args: {
     id: 100,
     name: "Test Counter",
