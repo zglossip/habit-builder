@@ -3,6 +3,7 @@ import CounterHeader from "./CounterHeader.vue";
 import { provide } from "vue";
 import { INJECTION_KEY } from "./counterHeaderService";
 import { action } from '@storybook/addon-actions';
+
 //META
 
 const meta = {
@@ -29,8 +30,8 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
 //STORIES
+
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {}

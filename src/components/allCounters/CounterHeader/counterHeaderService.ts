@@ -1,6 +1,6 @@
 import {useRouter} from 'vue-router'
 
-interface CounterHeaderService {
+export interface CounterHeaderService {
     navigate: () => void;
 }
 
@@ -13,7 +13,7 @@ export const useCounterHeaderService = (
 
     const navigate = () => {
         $router.push({
-            name: 'ViewRecipe',
+            name: 'ViewCounter',
             params: {id}
         })
     }

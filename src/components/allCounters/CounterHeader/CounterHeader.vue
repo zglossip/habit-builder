@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {INJECTION_KEY, useCounterHeaderService as useCounterHeaderServiceImpl} from '@/components/allCounters/CounterHeader/counterHeaderService'
+import {INJECTION_KEY, useCounterHeaderService} from '@/components/allCounters/CounterHeader/counterHeaderService'
 import { inject } from 'vue';
 
 //PROPS
@@ -12,8 +12,7 @@ interface Props {
 const props = defineProps<Props>()
 
 //SERVICE
-const useCounterHeaderService = inject(INJECTION_KEY, useCounterHeaderServiceImpl)
-const {navigate} = useCounterHeaderService(props.id)
+const {navigate} = inject(INJECTION_KEY, useCounterHeaderService)(props.id)
 </script>
 
 <template>
