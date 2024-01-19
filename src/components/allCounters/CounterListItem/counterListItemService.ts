@@ -1,12 +1,14 @@
 import { useRouter } from "vue-router";
 
-export interface CounterHeaderService {
+export interface CounterListItemService {
   navigate: () => void;
 }
 
 export const INJECTION_KEY = Symbol();
 
-export const useCounterHeaderService = (id: number): CounterHeaderService => {
+export const useCounterListItemService = (
+  id: number,
+): CounterListItemService => {
   const $router = useRouter();
 
   const navigate = () => {
