@@ -31,6 +31,12 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: ["Views", "All Counters", "Edit Counter", "Counter"],
+      },
+    },
   },
   decorators: [
     (story: any) => ({

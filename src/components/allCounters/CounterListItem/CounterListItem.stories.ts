@@ -4,6 +4,14 @@ import { provide } from "vue";
 import { INJECTION_KEY } from "./counterListItemService";
 import { action } from "@storybook/addon-actions";
 
+//STUB
+
+export const stubCounterListItemService = () => {
+  provide(INJECTION_KEY, (id: number) => ({
+    navigate: action(`navigating to id: ${id}`),
+  }));
+};
+
 //META
 
 const meta = {
@@ -17,9 +25,7 @@ const meta = {
   render: (args) => ({
     components: { CounterListItem },
     setup: () => {
-      provide(INJECTION_KEY, (id: number) => ({
-        navigate: action(`navigating to id: ${id}`),
-      }));
+      stubCounterListItemService();
       return { args };
     },
     template: `
