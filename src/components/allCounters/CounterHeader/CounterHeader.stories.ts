@@ -16,7 +16,7 @@ const meta = {
     render: (args) => ({
         components: {CounterHeader},
         setup: () => {
-            provide(INJECTION_KEY, (id: Number) => ({
+            provide(INJECTION_KEY, (id: number) => ({
                 navigate: action(`navigating to id: ${id}`)
             }))
             return {args}
