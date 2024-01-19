@@ -1,16 +1,23 @@
 <script lang="ts" setup>
+import {INJECTION_KEY, useCounterHeaderService as useCounterHeaderServiceImpl} from '@/components/allCounters/CounterHeader/counterHeaderService'
+import { inject } from 'vue';
+
+//PROPS
 interface Props {
+    id: number,
     name: string,
     progressCount: number
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
-const emit = defineEmits(['click'])
+//SERVICE
+const useCounterHeaderService = inject(INJECTION_KEY, useCounterHeaderServiceImpl)
+const {navigate} = useCounterHeaderService(props.id)
 </script>
 
 <template>
-    <ion-item :button="true" @click="emit('click')">
+    <ion-item :button="true" @click="navigate">
         <ion-label>{{name}}</ion-label>
         <ion-note slot="end">{{ progressCount }}</ion-note>
       </ion-item>
