@@ -6,7 +6,6 @@ import { stubCancelButtonService } from "../CancelButton/CancelButton.stories";
 import { provide } from "vue";
 import { INJECTION_KEY } from "./editCounterContainerService";
 import { testCounter } from "@/storybook/storybookData";
-import { action } from "@storybook/addon-actions";
 import defaultCounter from "@/util/defaultCounter";
 
 //STUBS
@@ -14,9 +13,6 @@ import defaultCounter from "@/util/defaultCounter";
 export const stubEditContainerService = () => {
   provide(INJECTION_KEY, (counterId?: number) => ({
     counter: counterId ? testCounter : defaultCounter,
-    onUpdateName: action("name updated"),
-    onUpdateGoal: action("goal updated"),
-    onUpdateReward: action("reward updated"),
   }));
 };
 

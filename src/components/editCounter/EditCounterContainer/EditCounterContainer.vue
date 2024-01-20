@@ -17,7 +17,7 @@ interface Props {
 const props = defineProps<Props>();
 
 //SERVICE
-const { counter, onUpdateName, onUpdateGoal, onUpdateReward } = inject(
+const { counter, onUpdateName, onUpdateGoal, onUpdateReward, onCancel, onSave } = inject(
   INJECTION_KEY,
   useEditCounterContainerService,
 )(props.counterId);
@@ -35,10 +35,10 @@ const { counter, onUpdateName, onUpdateGoal, onUpdateReward } = inject(
   <ion-grid>
     <ion-row>
       <ion-col>
-        <CancelButton />
+        <CancelButton @cancel="onCancel" />
       </ion-col>
       <ion-col>
-        <SaveButton />
+        <SaveButton @save="onSave"/>
       </ion-col>
     </ion-row>
   </ion-grid>

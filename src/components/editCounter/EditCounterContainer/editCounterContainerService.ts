@@ -2,6 +2,7 @@ import { Counter } from "@/interfaces/counter";
 import { getCounter } from "@/util/counterAccessor";
 import defaultCounter from "@/util/defaultCounter";
 import { Ref, ref } from "vue";
+import { useRouter } from "vue-router";
 
 export const INJECTION_KEY = Symbol();
 
@@ -10,11 +11,15 @@ interface EditCounterContainerService {
   onUpdateName: (name: string) => void;
   onUpdateGoal: (goal: number) => void;
   onUpdateReward: (reward: string) => void;
+  onSave: () => void;
+  onCancel: () => void;
 }
 
 export const useEditCounterContainerService = (
   id?: number,
 ): EditCounterContainerService => {
+  const $router = useRouter();
+
   const counter: Ref<Counter> = ref(defaultCounter);
 
   if (id) {
@@ -35,5 +40,20 @@ export const useEditCounterContainerService = (
     counter.value.reward = reward;
   };
 
-  return { counter, onUpdateName, onUpdateGoal, onUpdateReward };
+  const onSave = () => {
+    //TODO: Save counter and navigate to counter view
+  };
+
+  const onCancel = () => {
+    $router.go(-1);
+  };
+
+  return {
+    counter,
+    onUpdateName,
+    onUpdateGoal,
+    onUpdateReward,
+    onSave,
+    onCancel,
+  };
 };
