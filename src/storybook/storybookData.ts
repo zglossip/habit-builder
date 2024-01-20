@@ -1,5 +1,27 @@
 import { Counter } from "@/interfaces/counter";
 
+export const testCounter: Counter = {
+  id: 1,
+  name: "Exercise",
+  description: "Cardio and resistance training",
+  reward: "A night out",
+  goal: 21,
+  progress: [
+    {
+      date: new Date("2024-01-01"),
+      success: true,
+    },
+    {
+      date: new Date("2024-01-02"),
+      success: true,
+    },
+    {
+      date: new Date("2024-01-03"),
+      success: true,
+    },
+  ],
+};
+
 export const testCounters: Counter[] = [
   {
     id: 1,

@@ -1,7 +1,7 @@
 import { Progress } from "@/interfaces/progress";
 
 export interface Counter {
-  id: number;
+  id?: number;
   name: string;
   description: string;
   reward: string;
