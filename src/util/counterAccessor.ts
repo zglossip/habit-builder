@@ -1,29 +1,15 @@
 import { Counter } from "@/interfaces/counter";
+import { testCounter, testCounters } from "@/storybook/storybookData";
 import { DateTime } from "luxon";
 
 export const getCounter = async (id: number): Promise<Counter> => {
-  return {
-    id,
-    name: "Test Counter",
-    description: "This is a test counter",
-    reward: "You get a test reward",
-    goal: 21,
-    progress: [
-      {
-        date: DateTime.fromISO("2024-01-01"),
-        success: true,
-      },
-      {
-        date: DateTime.fromISO("2024-01-02"),
-        success: true,
-      },
-      {
-        date: DateTime.fromISO("2024-01-03"),
-        success: true,
-      },
-    ],
-  };
+  console.log(id)
+  return testCounter
 };
+
+export const getCounters = async (): Promise<Counter[]> => {
+  return testCounters
+}
 
 export const saveSuccess = async (counterId: number, date: DateTime) => {
   console.log("Saving", counterId, date);

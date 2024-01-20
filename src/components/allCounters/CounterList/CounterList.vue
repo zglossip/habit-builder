@@ -17,7 +17,7 @@ const { counters } = inject(INJECTION_KEY, useCounterListService)();
       v-else
       v-for="counter in counters"
       :key="counter.id"
-      :id="counter.id"
+      :id="Number(counter.id)"
       :name="counter.name"
       :progress-count="calculateProgressCount(counter.progress)"
     />

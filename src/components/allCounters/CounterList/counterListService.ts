@@ -1,4 +1,5 @@
 import { Counter } from "@/interfaces/counter";
+import { getCounters } from "@/util/counterAccessor";
 import { Ref, ref } from "vue";
 
 interface CounterListService {
@@ -8,9 +9,11 @@ interface CounterListService {
 export const INJECTION_KEY = Symbol();
 
 export const useCounterListService = (): CounterListService => {
-  const counters = ref([]);
+  const counters: Ref<Counter[]> = ref([]);
 
-  //TODO: Get counters
+  getCounters()
+  .then(response => counters.value = response)
+  .catch(err => console.error(err))
 
   return { counters };
 };
