@@ -8,7 +8,7 @@ import { INJECTION_KEY } from "./addCounterButtonService";
 
 export const stubAddCounterButtonService = () => {
   provide(INJECTION_KEY, () => ({
-    navigate: action("navigating"),
+    navigate: action("navigating to create"),
   }));
 };
 
