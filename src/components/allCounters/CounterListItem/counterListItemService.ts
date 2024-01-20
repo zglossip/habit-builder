@@ -14,7 +14,7 @@ export const useCounterListItemService = (
   const navigate = () => {
     $router.push({
       name: "ViewCounter",
-      params: { id },
+      params: { counterId: id },
     });
   };
 
