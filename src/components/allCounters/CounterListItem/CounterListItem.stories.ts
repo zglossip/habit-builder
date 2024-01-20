@@ -6,8 +6,8 @@ import { action } from "@storybook/addon-actions";
 
 //STUB
 
-export const stubCounterListItemService = () => {
-  provide(INJECTION_KEY, (id: number) => ({
+export const stubCounterListItemService = (id: number) => {
+  provide(INJECTION_KEY, () => ({
     navigate: action(`navigating to id: ${id}`),
   }));
 };
@@ -26,7 +26,7 @@ const meta = {
   render: (args: any) => ({
     components: { CounterListItem },
     setup: () => {
-      stubCounterListItemService();
+      stubCounterListItemService(args.id);
       return { ...args };
     },
     template: `
