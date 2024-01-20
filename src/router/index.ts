@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import("../views/EditCounterView/EditCounterView.vue"),
   },
   {
-    path: "/edit",
+    path: "/edit/:counterId",
     name: "EditCounter",
     component: () => import("../views/EditCounterView/EditCounterView.vue"),
     props: ({ params }) => ({
