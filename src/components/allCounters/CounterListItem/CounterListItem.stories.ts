@@ -23,14 +23,14 @@ const meta = {
     name: "Test Counter",
     progressCount: 12,
   },
-  render: (args) => ({
+  render: (args: any) => ({
     components: { CounterListItem },
     setup: () => {
       stubCounterListItemService();
-      return { args };
+      return { ...args };
     },
     template: `
-            <CounterListItem v-bind="args" />
+            <CounterListItem :id="id" :name="name" :progress-count="progressCount" />
         `,
   }),
 } satisfies Meta<typeof CounterListItem>;
