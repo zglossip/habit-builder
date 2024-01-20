@@ -1,21 +1,24 @@
 import { Counter } from "@/interfaces/counter";
 import { DatetimeHighlight } from "@ionic/core";
 import { DateTime } from "luxon";
-import { Ref, ref } from "vue";
+import { ComputedRef, Ref, computed, ref } from "vue";
 
 export const INJECTION_KEY = Symbol();
 
 interface CounterCalendarService {
-  currentDateString: Ref<string>;
+  currentDateString: ComputedRef<string>;
   calendarOptions: Ref<DatetimeHighlight[]>;
   onDateUpdate: (input: string) => void;
 }
 
 export const useCounterCalendarService = (
   counter: Counter,
+  currentDate: Ref<DateTime>,
   emitDateUpdate: (date: DateTime) => void,
 ): CounterCalendarService => {
-  const currentDateString = ref(DateTime.now().toFormat("yyyy-MM-dd"));
+  const currentDateString = computed(() =>
+    currentDate.value.toFormat("yyyy-MM-dd"),
+  );
   const calendarOptions = ref([]);
   console.log(counter);
 

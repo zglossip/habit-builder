@@ -1,21 +1,21 @@
 <script lang="ts" setup>
 import { inject } from "vue";
-import {
-  INJECTION_KEY,
-  useEditButtonService,
-} from "./editButtonService";
+import { INJECTION_KEY, useEditButtonService } from "./editButtonService";
 import { create } from "ionicons/icons";
 import { IonFab, IonFabButton, IonIcon } from "@ionic/vue";
 
 //PROPS
 interface Props {
-  counterId: number
+  counterId: number;
 }
 
 const props = defineProps<Props>();
 
 //SERVICE
-const { navigate } = inject(INJECTION_KEY, useEditButtonService)(props.counterId);
+const { navigate } = inject(
+  INJECTION_KEY,
+  useEditButtonService,
+)(props.counterId);
 </script>
 
 <template>

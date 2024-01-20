@@ -32,7 +32,9 @@ const { currentStreak } = inject(
     <ion-card-header>
       <ion-card-title>{{ counter.name }}</ion-card-title>
       <ion-card-subtitle>Goal: {{ counter.goal }} days</ion-card-subtitle>
-      <ion-card-subtitle> Current streak: {{ currentStreak }} </ion-card-subtitle>
+      <ion-card-subtitle>
+        Current streak: {{ currentStreak }}
+      </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 </template>

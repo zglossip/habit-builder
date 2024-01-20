@@ -1,22 +1,22 @@
-import {useRouter} from 'vue-router'
+import { useRouter } from "vue-router";
 
-export const INJECTION_KEY = Symbol()
+export const INJECTION_KEY = Symbol();
 
 interface EditButtonService {
-    navigate: () => void
+  navigate: () => void;
 }
 
 export const useEditButtonService = (counterId: number): EditButtonService => {
-    const $router = useRouter();
+  const $router = useRouter();
 
-    const navigate = () => {
-      $router.push({
-        name: "EditCounter",
-        params: {
-            counterId
-        }
-      });
-    };
+  const navigate = () => {
+    $router.push({
+      name: "EditCounter",
+      params: {
+        counterId,
+      },
+    });
+  };
 
-    return {navigate}
-}
+  return { navigate };
+};

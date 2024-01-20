@@ -28,6 +28,7 @@ const meta = {
   excludeStories: /stubCounterCalendarService/,
   args: {
     counter: testCounter,
+    currentDate: DateTime.now(),
     currentDateString: ref(DateTime.now().toFormat("yyyy-MM-dd")),
     calendarOptions: ref([
       {
@@ -53,7 +54,7 @@ const meta = {
       stubCounterCalendarService(args.currentDate, args.calendarOptions);
       return { ...args };
     },
-    template: `<CounterCalendar :counter="counter" />`,
+    template: `<CounterCalendar :counter="counter" :currend-date="currentDate" />`,
   }),
 } satisfies Meta<typeof CounterCalendar>;
 

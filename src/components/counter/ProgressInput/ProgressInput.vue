@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import { IonGrid, IonRow, IonCol, IonButton, IonIcon } from '@ionic/vue';
+import { IonGrid, IonRow, IonCol, IonButton, IonIcon } from "@ionic/vue";
 import { checkmark, close } from "ionicons/icons";
-import { DateTime } from 'luxon';
-import { inject } from 'vue';
-import {INJECTION_KEY, useProgressInputService} from './progressInputService'
+import { inject } from "vue";
+import { INJECTION_KEY, useProgressInputService } from "./progressInputService";
 
-//PROPS
-interface Props {
-  counterId: number,
-  date: DateTime
-}
+//EMITS
+const emit = defineEmits<{
+  (e: "success"): void;
+  (e: "failure"): void;
+}>();
 
-const props = defineProps<Props>()
+const emitSuccess = () => emit("success");
+const emitFailure = () => emit("failure");
 
 //SERVICE
-const {onSuccess, onFailure} = inject(INJECTION_KEY, useProgressInputService)(props.counterId, props.date)
+const { onSuccess, onFailure } = inject(INJECTION_KEY, useProgressInputService)(
+  emitSuccess,
+  emitFailure,
+);
 </script>
 
 <template>

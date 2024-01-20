@@ -1,25 +1,17 @@
-import { saveFaillure, saveSuccess } from "@/util/counterAccessor"
-import { DateTime } from "luxon"
-
-export const INJECTION_KEY = Symbol()
+export const INJECTION_KEY = Symbol();
 
 interface ProgressInputService {
-    onSuccess: () => void
-    onFailure: () => void
+  onSuccess: () => void;
+  onFailure: () => void;
 }
 
-export const useProgressInputService = (counterId: number, date: DateTime): ProgressInputService => {
-    const onSuccess = () => {
-        saveSuccess(counterId, date)
-        .then(() => console.log("Saved successfully"))
-        .catch(err => console.error(err))
-    }
+export const useProgressInputService = (
+  emitSuccess: () => void,
+  emitFailure: () => void,
+): ProgressInputService => {
+  const onSuccess = () => emitSuccess();
 
-    const onFailure = () => {
-        saveFaillure(counterId, date)
-        .then(() => console.log("Saved successfully"))
-        .catch(err => console.error(err))
-    } 
+  const onFailure = () => emitFailure();
 
-    return {onSuccess, onFailure}
-}
+  return { onSuccess, onFailure };
+};

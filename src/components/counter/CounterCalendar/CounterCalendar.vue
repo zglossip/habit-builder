@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import { inject } from "vue";
+import { inject, toRefs } from "vue";
 import { Counter } from "../../../interfaces/counter";
 import {
   INJECTION_KEY,
   useCounterCalendarService,
 } from "./counterCalendarService";
-import { IonDatetime } from "@ionic/vue";
+import { IonDatetime, IonGrid, IonRow, IonCol } from "@ionic/vue";
 import { DateTime } from "luxon";
 
 //PROPS
 interface Props {
   counter: Counter;
+  currentDate: DateTime;
 }
 
 const props = defineProps<Props>();
+
+const { currentDate } = toRefs(props);
 
 //EMITS
 
@@ -27,14 +30,20 @@ const emitDateUpdate = (date: DateTime) => emit("update:counter-date", date);
 const { currentDateString, calendarOptions, onDateUpdate } = inject(
   INJECTION_KEY,
   useCounterCalendarService,
-)(props.counter, emitDateUpdate);
+)(props.counter, currentDate, emitDateUpdate);
 </script>
 
 <template>
-  <ion-datetime
-    presentation="date"
-    :value="currentDateString"
-    :highlighted-dates="calendarOptions"
-    @update:model-value="onDateUpdate"
-  />
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-datetime
+          presentation="date"
+          :value="currentDateString"
+          :highlighted-dates="calendarOptions"
+          @update:model-value="onDateUpdate"
+        />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </template>
