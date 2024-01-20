@@ -14,24 +14,24 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/create",
     name: "CreateCounter",
-    component: () => import("../views/EditCounterView/EditCounterView.vue")
+    component: () => import("../views/EditCounterView/EditCounterView.vue"),
   },
   {
     path: "/edit",
     name: "EditCounter",
     component: () => import("../views/EditCounterView/EditCounterView.vue"),
-    props: ({params}) => ({
-      counterId: params.counterId
-    })
+    props: ({ params }) => ({
+      counterId: params.counterId,
+    }),
   },
   {
     path: "/counter",
     name: "ViewCounter",
     component: () => import("../views/CounterView/CounterView.vue"),
-    props: ({params}) => ({
-      counterId: params.counterId
-    })
-  }
+    props: ({ params }) => ({
+      counterId: params.counterId,
+    }),
+  },
 ];
 
 const router = createRouter({

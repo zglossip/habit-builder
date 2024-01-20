@@ -8,23 +8,23 @@ import { stubAddCounterButtonService } from "@/components/allCounters/AddCounter
 //META
 
 const meta = {
-    title: "Views/All Counters",
-    component: AllCountersView,
-    render: () => ({
-        components: {AllCountersView},
-        setup: () => {
-            stubAddCounterButtonService();
-            stubCounterListService(testCounters)
-            stubCounterListItemService()
-        },
-        template: `<AllCountersView />`
-    })
-} satisfies Meta<typeof AllCountersView>
+  title: "Views/All Counters",
+  component: AllCountersView,
+  render: () => ({
+    components: { AllCountersView },
+    setup: () => {
+      stubAddCounterButtonService();
+      stubCounterListService(testCounters);
+      stubCounterListItemService();
+    },
+    template: `<AllCountersView />`,
+  }),
+} satisfies Meta<typeof AllCountersView>;
 
 export default meta;
 
 //STORIES
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {}
+export const Default: Story = {};

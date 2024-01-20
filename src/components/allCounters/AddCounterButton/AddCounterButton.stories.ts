@@ -10,7 +10,7 @@ export const stubAddCounterButtonService = () => {
   provide(INJECTION_KEY, () => ({
     navigate: action("navigating"),
   }));
-}
+};
 
 //META
 
@@ -21,7 +21,7 @@ const meta = {
   render: () => ({
     components: { AddCounterButton },
     setup: () => {
-      stubAddCounterButtonService()
+      stubAddCounterButtonService();
     },
     template: `<AddCounterButton/>`,
   }),

@@ -4,11 +4,7 @@ import {
   useCounterListItemService,
 } from "@/components/allCounters/CounterListItem/counterListItemService";
 import { inject } from "vue";
-import {
-  IonItem,
-  IonLabel,
-  IonNote,
-} from "@ionic/vue";
+import { IonItem, IonLabel, IonNote } from "@ionic/vue";
 
 //PROPS
 interface Props {

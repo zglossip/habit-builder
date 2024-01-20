@@ -12,7 +12,7 @@ export const stubCounterListService = (counters: Counter[]) => {
   provide(INJECTION_KEY, () => ({
     counters: ref(counters),
   }));
-}
+};
 
 // META
 
@@ -23,7 +23,7 @@ const meta = {
   render: (args: any) => ({
     components: { CounterList },
     setup: () => {
-      stubCounterListService(args.counters)
+      stubCounterListService(args.counters);
       stubCounterListItemService();
     },
     template: `

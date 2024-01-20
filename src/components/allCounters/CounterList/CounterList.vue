@@ -3,13 +3,7 @@ import { useCounterListService, INJECTION_KEY } from "./counterListService";
 import { inject } from "vue";
 import CounterListItem from "../CounterListItem/CounterListItem.vue";
 import calculateProgressCount from "../../../util/calculateProgressCount";
-import {
-  IonList,
-  IonItem,
-  IonLabel,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/vue";
+import { IonList, IonItem, IonLabel } from "@ionic/vue";
 
 const { counters } = inject(INJECTION_KEY, useCounterListService)();
 </script>
