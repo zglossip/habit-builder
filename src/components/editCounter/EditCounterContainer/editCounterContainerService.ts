@@ -1,5 +1,5 @@
 import { Counter } from "@/interfaces/counter";
-import { getCounter, saveCounter } from "@/util/counterAccessor";
+import { getCounter, saveCounter } from "@/accessor/counterAccessor";
 import defaultCounter from "@/util/defaultCounter";
 import { Ref, ref } from "vue";
 import { useRouter } from "vue-router";

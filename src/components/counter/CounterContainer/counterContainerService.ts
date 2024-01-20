@@ -1,9 +1,9 @@
 import { Counter } from "@/interfaces/counter";
 import defaultCounter from "@/util/defaultCounter";
 import { Ref, ref } from "vue";
-import { getCounter } from "@/util/counterAccessor";
+import { getCounter } from "@/accessor/counterAccessor";
 import { DateTime } from "luxon";
-import { saveFaillure, saveSuccess } from "@/util/counterAccessor";
+import { saveFaillure, saveSuccess } from "@/accessor/counterAccessor";
 
 export const INJECTION_KEY = Symbol();
 

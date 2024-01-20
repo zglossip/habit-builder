@@ -29,6 +29,7 @@
     "vue-router": "^4.2.0"
   },
   "devDependencies": {
+    "@capacitor-community/sqlite": "^5.5.1-4",
     "@capacitor/cli": "5.6.0",
     "@storybook/addon-essentials": "^7.6.10",
     "@storybook/addon-interactions": "^7.6.10",

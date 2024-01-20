@@ -1,5 +1,5 @@
 import { Counter } from "@/interfaces/counter";
-import { getCounters } from "@/util/counterAccessor";
+import { getCounters } from "@/accessor/counterAccessor";
 import { Ref, ref } from "vue";
 
 interface CounterListService {
