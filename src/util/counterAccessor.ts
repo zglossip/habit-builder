@@ -24,3 +24,12 @@ export const getCounter = async (id: number): Promise<Counter> => {
     ],
   };
 };
+
+export const saveSuccess = async (counterId: number, date: DateTime) => {
+  
+}
+
+export const saveFaillure = async (counterId: number, date: DateTime) => {
+  
+}
+
