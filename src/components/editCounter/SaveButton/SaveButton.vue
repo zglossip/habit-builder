@@ -15,5 +15,5 @@ const { onClick } = inject(INJECTION_KEY, useSaveButtonService)(emitSave);
 </script>
 
 <template>
-  <ion-button @click="onClick">SAVE</ion-button>
+  <ion-button @click="onClick" expand="block">SAVE</ion-button>
 </template>

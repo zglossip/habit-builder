@@ -15,5 +15,7 @@ const { onClick } = inject(INJECTION_KEY, useCancelButtonService)(emitCancel);
 </script>
 
 <template>
-  <ion-button @click="onClick" color="secondary">CANCEL</ion-button>
+  <ion-button @click="onClick" color="secondary" expand="block"
+    >CANCEL</ion-button
+  >
 </template>

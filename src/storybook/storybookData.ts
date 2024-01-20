@@ -5,7 +5,7 @@ export const testCounter: Counter = {
   name: "Exercise",
   description: "Cardio and resistance training",
   reward: "A night out",
-  goal: 21,
+  goal: 30,
   progress: [
     {
       date: new Date("2024-01-01"),

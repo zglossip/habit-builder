@@ -7,12 +7,13 @@ import { provide } from "vue";
 import { INJECTION_KEY } from "./editCounterContainerService";
 import { testCounter } from "@/storybook/storybookData";
 import { action } from "@storybook/addon-actions";
+import defaultCounter from "@/util/defaultCounter";
 
 //STUBS
 
 export const stubEditContainerService = () => {
-  provide(INJECTION_KEY, () => ({
-    counter: testCounter,
+  provide(INJECTION_KEY, (counterId?: number) => ({
+    counter: counterId ? testCounter : defaultCounter,
     onUpdateName: action("name updated"),
     onUpdateGoal: action("goal updated"),
     onUpdateReward: action("reward updated"),
