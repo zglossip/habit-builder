@@ -1,4 +1,5 @@
 import { Counter } from "@/interfaces/counter";
+import { DateTime } from "luxon";
 
 export const getCounter = async (id: number): Promise<Counter> => {
   return {
@@ -9,15 +10,15 @@ export const getCounter = async (id: number): Promise<Counter> => {
     goal: 21,
     progress: [
       {
-        date: new Date("2024-01-01"),
+        date: DateTime.fromISO("2024-01-01"),
         success: true,
       },
       {
-        date: new Date("2024-01-02"),
+        date: DateTime.fromISO("2024-01-02"),
         success: true,
       },
       {
-        date: new Date("2024-01-03"),
+        date: DateTime.fromISO("2024-01-03"),
         success: true,
       },
     ],

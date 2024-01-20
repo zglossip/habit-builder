@@ -1,4 +1,6 @@
+import type { DateTime } from "luxon";
+
 export interface Progress {
-  date: Date;
+  date: DateTime;
   success: boolean;
 }

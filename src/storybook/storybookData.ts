@@ -1,4 +1,5 @@
 import { Counter } from "@/interfaces/counter";
+import { DateTime } from "luxon";
 
 export const testCounter: Counter = {
   id: 1,
@@ -8,42 +9,22 @@ export const testCounter: Counter = {
   goal: 30,
   progress: [
     {
-      date: new Date("2024-01-01"),
+      date: DateTime.fromISO("2024-01-01"),
       success: true,
     },
     {
-      date: new Date("2024-01-02"),
+      date: DateTime.fromISO("2024-01-02"),
       success: true,
     },
     {
-      date: new Date("2024-01-03"),
+      date: DateTime.fromISO("2024-01-03"),
       success: true,
     },
   ],
 };
 
 export const testCounters: Counter[] = [
-  {
-    id: 1,
-    name: "Exercise",
-    description: "Cardio and resistance training",
-    reward: "A night out",
-    goal: 21,
-    progress: [
-      {
-        date: new Date("2024-01-01"),
-        success: true,
-      },
-      {
-        date: new Date("2024-01-02"),
-        success: true,
-      },
-      {
-        date: new Date("2024-01-03"),
-        success: true,
-      },
-    ],
-  },
+  testCounter,
   {
     id: 2,
     name: "Chores",
@@ -52,15 +33,15 @@ export const testCounters: Counter[] = [
     goal: 21,
     progress: [
       {
-        date: new Date("2024-01-01"),
+        date: DateTime.fromISO("2024-01-01"),
         success: true,
       },
       {
-        date: new Date("2024-01-02"),
+        date: DateTime.fromISO("2024-01-02"),
         success: false,
       },
       {
-        date: new Date("2024-01-03"),
+        date: DateTime.fromISO("2024-01-03"),
         success: true,
       },
     ],
@@ -73,19 +54,19 @@ export const testCounters: Counter[] = [
     goal: 300,
     progress: [
       {
-        date: new Date("2023-01-01"),
+        date: DateTime.fromISO("2023-01-01"),
         success: true,
       },
       {
-        date: new Date("2024-01-01"),
+        date: DateTime.fromISO("2024-01-01"),
         success: false,
       },
       {
-        date: new Date("2024-01-02"),
+        date: DateTime.fromISO("2024-01-02"),
         success: true,
       },
       {
-        date: new Date("2024-01-03"),
+        date: DateTime.fromISO("2024-01-03"),
         success: true,
       },
     ],
