@@ -10,7 +10,6 @@ import {
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
-  IonCardContent,
 } from "@ionic/vue";
 
 //PROPS
@@ -33,8 +32,7 @@ const { currentStreak } = inject(
     <ion-card-header>
       <ion-card-title>{{ counter.name }}</ion-card-title>
       <ion-card-subtitle>Goal: {{ counter.goal }} days</ion-card-subtitle>
+      <ion-card-subtitle> Current streak: {{ currentStreak }} </ion-card-subtitle>
     </ion-card-header>
-
-    <ion-card-content> Current streak: {{ currentStreak }} </ion-card-content>
   </ion-card>
 </template>
