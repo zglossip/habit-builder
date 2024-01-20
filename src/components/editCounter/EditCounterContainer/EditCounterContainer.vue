@@ -17,10 +17,14 @@ interface Props {
 const props = defineProps<Props>();
 
 //SERVICE
-const { counter, onUpdateName, onUpdateGoal, onUpdateReward, onCancel, onSave } = inject(
-  INJECTION_KEY,
-  useEditCounterContainerService,
-)(props.counterId);
+const {
+  counter,
+  onUpdateName,
+  onUpdateGoal,
+  onUpdateReward,
+  onCancel,
+  onSave,
+} = inject(INJECTION_KEY, useEditCounterContainerService)(props.counterId);
 </script>
 
 <template>
@@ -38,7 +42,7 @@ const { counter, onUpdateName, onUpdateGoal, onUpdateReward, onCancel, onSave } 
         <CancelButton @cancel="onCancel" />
       </ion-col>
       <ion-col>
-        <SaveButton @save="onSave"/>
+        <SaveButton @save="onSave" />
       </ion-col>
     </ion-row>
   </ion-grid>
