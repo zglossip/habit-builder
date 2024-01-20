@@ -1,5 +1,5 @@
 import { Counter } from "@/interfaces/counter";
-import { getCounter } from "@/util/counterAccessor";
+import { getCounter, saveCounter } from "@/util/counterAccessor";
 import defaultCounter from "@/util/defaultCounter";
 import { Ref, ref } from "vue";
 import { useRouter } from "vue-router";
@@ -41,7 +41,14 @@ export const useEditCounterContainerService = (
   };
 
   const onSave = () => {
-    //TODO: Save counter and navigate to counter view
+    saveCounter(counter.value)
+      .then((counterId: number) =>
+        $router.push({
+          name: "ViewCounter",
+          params: { counterId },
+        }),
+      )
+      .catch((err) => console.log(err));
   };
 
   const onCancel = () => {

@@ -20,12 +20,14 @@ export const useCounterCalendarService = (
   const currentDateString = computed(() =>
     currentDate.value.toFormat("yyyy-MM-dd"),
   );
-  
-  const calendarOptions: Ref<DatetimeHighlight[]> = ref(counter.progress.map(p => ({
-    date: p.date.toFormat('yyyy-MM-dd'),
-    textColor: p.success ? SUCCESS.text : FAILURE.text,
-    backgroundColor: p.success ? SUCCESS.background : FAILURE.background
-  })))
+
+  const calendarOptions: Ref<DatetimeHighlight[]> = ref(
+    counter.progress.map((p) => ({
+      date: p.date.toFormat("yyyy-MM-dd"),
+      textColor: p.success ? SUCCESS.text : FAILURE.text,
+      backgroundColor: p.success ? SUCCESS.background : FAILURE.background,
+    })),
+  );
 
   const onDateUpdate = (input: string) => {
     emitDateUpdate(DateTime.fromISO(input));

@@ -12,8 +12,8 @@ export const useCounterListService = (): CounterListService => {
   const counters: Ref<Counter[]> = ref([]);
 
   getCounters()
-  .then(response => counters.value = response)
-  .catch(err => console.error(err))
+    .then((response) => (counters.value = response))
+    .catch((err) => console.error(err));
 
   return { counters };
 };

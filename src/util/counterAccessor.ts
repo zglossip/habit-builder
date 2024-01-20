@@ -3,13 +3,18 @@ import { testCounter, testCounters } from "@/storybook/storybookData";
 import { DateTime } from "luxon";
 
 export const getCounter = async (id: number): Promise<Counter> => {
-  console.log(id)
-  return testCounter
+  console.log(id);
+  return testCounter;
 };
 
 export const getCounters = async (): Promise<Counter[]> => {
-  return testCounters
-}
+  return testCounters;
+};
+
+export const saveCounter = async (counter: Counter): Promise<number> => {
+  console.log("saving", counter);
+  return 100;
+};
 
 export const saveSuccess = async (counterId: number, date: DateTime) => {
   console.log("Saving", counterId, date);
