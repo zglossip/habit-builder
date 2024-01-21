@@ -28,12 +28,20 @@ export const useCounterContainerService = (
   };
 
   const onSuccess = () => {
+    if(currentDate.value > DateTime.now().startOf("day")){
+      return;
+    }
+
     saveSuccess(counterId, currentDate.value)
       .then(resetCounter)
       .catch((err) => console.error(err));
   };
 
   const onFailure = () => {
+    if(currentDate.value > DateTime.now().startOf("day")){
+      return;
+    }
+
     saveFaillure(counterId, currentDate.value)
       .then(resetCounter)
       .catch((err) => console.error(err));

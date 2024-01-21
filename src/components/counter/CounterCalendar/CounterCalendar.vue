@@ -42,6 +42,7 @@ const { currentDateString, calendarOptions, onDateUpdate } = inject(
           :value="currentDateString"
           :highlighted-dates="calendarOptions"
           @update:model-value="onDateUpdate"
+          :max="DateTime.now().toFormat('yyyy-MM-dd')"
         />
       </ion-col>
     </ion-row>
