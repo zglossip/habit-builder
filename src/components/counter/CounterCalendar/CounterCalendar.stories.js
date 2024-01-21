@@ -1,18 +1,16 @@
 import { testCounter } from "@/storybook/storybookData";
 import CounterCalendar from "./CounterCalendar.vue";
-import { Meta, StoryObj } from "@storybook/vue3";
-import { Ref, provide, ref } from "vue";
+import { provide, ref } from "vue";
 import { INJECTION_KEY } from "./counterCalendarService";
 import { DateTime } from "luxon";
 import { action } from "@storybook/addon-actions";
-import { DatetimeHighlight } from "@ionic/core";
 import { FAILURE, SUCCESS } from "./calendarColors";
 
 //STUB
 
 export const stubCounterCalendarService = (
-  currentDateString: Ref<string> = ref(DateTime.now().toFormat("yyyy-MM-dd")),
-  calendarOptions: Ref<DatetimeHighlight[]> = ref([]),
+  currentDateString= ref(DateTime.now().toFormat("yyyy-MM-dd")),
+  calendarOptions = ref([]),
 ) => {
   provide(INJECTION_KEY, () => ({
     currentDateString,
@@ -22,7 +20,7 @@ export const stubCounterCalendarService = (
 };
 
 //META
-const meta = {
+export default {
   title: "Counter/Counter Calendar",
   component: CounterCalendar,
   excludeStories: /stubCounterCalendarService/,
@@ -48,7 +46,7 @@ const meta = {
       },
     ]),
   },
-  render: (args: any) => ({
+  render: (args) => ({
     components: { CounterCalendar },
     setup: () => {
       stubCounterCalendarService(args.currentDate, args.calendarOptions);
@@ -56,11 +54,7 @@ const meta = {
     },
     template: `<CounterCalendar :counter="counter" :currend-date="currentDate" />`,
   }),
-} satisfies Meta<typeof CounterCalendar>;
-
-export default meta;
+};
 
 //STORIES
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {};
+export const Default = {};

@@ -1,14 +1,12 @@
 import { provide, ref } from "vue";
 import CounterList from "./CounterList.vue";
 import { INJECTION_KEY } from "./counterListService";
-import { Meta, StoryObj } from "@storybook/vue3";
-import { Counter } from "@/interfaces/counter";
 import { stubCounterListItemService } from "../CounterListItem/CounterListItem.stories";
 import { testCounters } from "@/storybook/storybookData";
 
 //STUB
 
-export const stubCounterListService = (counters: Counter[]) => {
+export const stubCounterListService = (counters) => {
   provide(INJECTION_KEY, () => ({
     counters: ref(counters),
   }));
@@ -16,11 +14,11 @@ export const stubCounterListService = (counters: Counter[]) => {
 
 // META
 
-const meta = {
+export default {
   title: "All Counters/Counter List",
   component: CounterList,
   excludeStories: /stubCounterListService/,
-  render: (args: any) => ({
+  render: (args) => ({
     components: { CounterList },
     setup: () => {
       stubCounterListService(args.counters);
@@ -30,21 +28,17 @@ const meta = {
             <CounterList />
         `,
   }),
-} satisfies Meta<typeof CounterList>;
-
-export default meta;
+}
 
 //STORIES
 
-type Story = StoryObj<typeof meta>;
-
-export const FullList: Story = {
+export const FullList = {
   args: {
     counters: testCounters,
   },
 };
 
-export const EmptyList: Story = {
+export const EmptyList = {
   args: {
     counters: [],
   },
