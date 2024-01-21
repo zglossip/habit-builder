@@ -4,7 +4,6 @@ import { DateTime } from "luxon";
 export const testCounter: Counter = {
   id: 1,
   name: "Exercise",
-  description: "Cardio and resistance training",
   reward: "A night out",
   goal: 30,
   progress: [
@@ -28,7 +27,6 @@ export const testCounters: Counter[] = [
   {
     id: 2,
     name: "Chores",
-    description: "Dishes and laundry",
     reward: "A night out",
     goal: 21,
     progress: [
@@ -49,7 +47,6 @@ export const testCounters: Counter[] = [
   {
     id: 3,
     name: "Reading",
-    description: "Reading every night",
     reward: "A new bookshelf",
     goal: 300,
     progress: [
@@ -74,7 +71,6 @@ export const testCounters: Counter[] = [
   {
     id: 4,
     name: "Dog Walking",
-    description: "Taking the dog to the dog park every day",
     reward: "A new dog",
     goal: 100,
     progress: [],
