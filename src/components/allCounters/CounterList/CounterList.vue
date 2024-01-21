@@ -8,7 +8,7 @@ import { IonList, IonItem, IonLabel } from "@ionic/vue";
 const { counters, refresh } = inject(INJECTION_KEY, useCounterListService)();
 
 //EXPOSE
-defineExpose({refresh})
+defineExpose({ refresh });
 </script>
 
 <template>

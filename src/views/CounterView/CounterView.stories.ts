@@ -5,6 +5,7 @@ import { stubCounterSummaryService } from "@/components/counter/CounterSummary/C
 import { stubEditButtonService } from "@/components/counter/EditButton/EditButton.stories";
 import { stubProgressInputService } from "@/components/counter/ProgressInput/ProgressInput.stories";
 import { stubCounterContainerService } from "@/components/counter/CounterContainer/CounterContainer.stories";
+import { stubDeleteButtonService } from "@/components/counter/DeleteButton/DeleteButton.stories";
 
 //META
 
@@ -20,6 +21,7 @@ const meta = {
       stubCounterCalendarService();
       stubCounterSummaryService();
       stubEditButtonService();
+      stubDeleteButtonService();
       stubProgressInputService();
       stubCounterContainerService();
       return { ...args };

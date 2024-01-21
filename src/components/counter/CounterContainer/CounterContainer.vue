@@ -5,6 +5,7 @@ import {
   useCounterContainerService,
 } from "./counterContainerService";
 import EditButton from "../EditButton/EditButton.vue";
+import DeleteButton from "../DeleteButton/DeleteButton.vue";
 import CounterSummary from "../CounterSummary/CounterSummary.vue";
 import CounterCalendar from "../CounterCalendar/CounterCalendar.vue";
 import ProgessInput from "../ProgressInput/ProgressInput.vue";
@@ -23,6 +24,7 @@ const { counter, currentDate, onSuccess, onFailure, onUpdateCurrentDate } =
 
 <template>
   <EditButton :counter-id="counterId" />
+  <DeleteButton :counter-id="counterId" />
   <CounterSummary :counter="counter" />
   <CounterCalendar
     :counter="counter"

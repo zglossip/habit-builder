@@ -10,6 +10,7 @@ import { stubEditButtonService } from "../EditButton/EditButton.stories";
 import { stubProgressInputService } from "../ProgressInput/ProgressInput.stories";
 import { Meta, StoryObj } from "@storybook/vue3";
 import { IonPage, IonContent } from "@ionic/vue";
+import { stubDeleteButtonService } from "../DeleteButton/DeleteButton.stories";
 
 //STUBS
 
@@ -39,6 +40,7 @@ const meta = {
       stubCounterCalendarService();
       stubCounterSummaryService();
       stubEditButtonService();
+      stubDeleteButtonService();
       stubProgressInputService();
       return { ...args };
     },

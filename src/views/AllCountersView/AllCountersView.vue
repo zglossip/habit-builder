@@ -11,10 +11,10 @@ import {
 import { onIonViewDidEnter } from "@ionic/vue";
 import { ref } from "vue";
 
-const list = ref<InstanceType<typeof CounterList> | null>(null)
+const list = ref<InstanceType<typeof CounterList> | null>(null);
 onIonViewDidEnter(() => {
   list.value?.refresh();
-})
+});
 </script>
 
 <template>
@@ -25,7 +25,7 @@ onIonViewDidEnter(() => {
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <CounterList ref="list"/>
+      <CounterList ref="list" />
       <AddCounterButton />
     </ion-content>
   </ion-page>

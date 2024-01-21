@@ -94,3 +94,9 @@ export const saveFaillure = async (counterId: number, date: DateTime) => {
     [counterId, date.toFormat("yyyy-MM-dd")],
   );
 };
+
+export const deleteCounter = async (counterId: number) => {
+  const db = await useDb();
+  await db.run("DELETE FROM PROGRESS WHERE COUNTER_ID = ?", [counterId]);
+  await db.run("DELETE FROM COUNTER WHERE ID = ?", [counterId]);
+};

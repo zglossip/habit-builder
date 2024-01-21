@@ -4,7 +4,7 @@ import { Ref, ref } from "vue";
 
 interface CounterListService {
   counters: Ref<Counter[]>;
-  refresh: () => void
+  refresh: () => void;
 }
 
 export const INJECTION_KEY = Symbol();
@@ -14,9 +14,9 @@ export const useCounterListService = (): CounterListService => {
 
   const refresh = () => {
     getCounters()
-    .then((response) => (counters.value = response))
-    .catch((err) => console.error(err));
-  }
+      .then((response) => (counters.value = response))
+      .catch((err) => console.error(err));
+  };
 
   refresh();
   return { counters, refresh };
