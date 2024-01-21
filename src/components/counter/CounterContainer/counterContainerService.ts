@@ -19,7 +19,7 @@ export const useCounterContainerService = (
   counterId: number,
 ): CounterContainerService => {
   const counter: Ref<Counter> = ref(defaultCounter);
-  const currentDate: Ref<DateTime> = ref(DateTime.now());
+  const currentDate: Ref<DateTime> = ref(DateTime.now().startOf("day"));
 
   const resetCounter = () => {
     getCounter(counterId)
@@ -28,7 +28,7 @@ export const useCounterContainerService = (
   };
 
   const onSuccess = () => {
-    if(currentDate.value > DateTime.now().startOf("day")){
+    if (currentDate.value > DateTime.now().startOf("day")) {
       return;
     }
 
@@ -38,7 +38,7 @@ export const useCounterContainerService = (
   };
 
   const onFailure = () => {
-    if(currentDate.value > DateTime.now().startOf("day")){
+    if (currentDate.value > DateTime.now().startOf("day")) {
       return;
     }
 

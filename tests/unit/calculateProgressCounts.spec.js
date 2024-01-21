@@ -6,7 +6,7 @@ describe("calculateProgressCounts", () => {
   it("can count a streak", () => {
     const progress = [
       {
-        date: DateTime.now().minus({days: 1}),
+        date: DateTime.now().minus({ days: 1 }),
         success: true,
       },
       {
@@ -19,15 +19,15 @@ describe("calculateProgressCounts", () => {
   it("can count a streak with a failure", () => {
     const progress = [
       {
-        date: DateTime.now().minus({days: 3}),
+        date: DateTime.now().minus({ days: 3 }),
         success: true,
       },
       {
-        date: DateTime.now().minus({days: 2}),
+        date: DateTime.now().minus({ days: 2 }),
         success: false,
       },
       {
-        date: DateTime.now().minus({days: 1}),
+        date: DateTime.now().minus({ days: 1 }),
         success: true,
       },
       {
@@ -40,11 +40,11 @@ describe("calculateProgressCounts", () => {
   it("can count a streak with a gap", () => {
     const progress = [
       {
-        date: DateTime.now().minus({days: 3}),
+        date: DateTime.now().minus({ days: 3 }),
         success: true,
       },
       {
-        date: DateTime.now().minus({days: 1}),
+        date: DateTime.now().minus({ days: 1 }),
         success: true,
       },
       {
@@ -53,7 +53,7 @@ describe("calculateProgressCounts", () => {
       },
     ];
     expect(calculateProgressCounts(progress)).to.equal(2);
-  })
+  });
   it("can handle an empty array", () => {
     expect(calculateProgressCounts([])).to.equal(0);
   });

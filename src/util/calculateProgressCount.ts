@@ -7,18 +7,18 @@ export default (progresses: Progress[]): number => {
   }
 
   let count: number = 0;
-  let currentDate: DateTime = DateTime.now()
+  let currentDate: DateTime = DateTime.now();
 
   for (let i = progresses.length; i--; i >= 0) {
     if (!progresses[i].success) {
       break;
     }
 
-    if (progresses[i].date.toISODate() !== currentDate.toISODate()){
+    if (progresses[i].date.toISODate() !== currentDate.toISODate()) {
       break;
     }
 
-    currentDate = currentDate.minus({days: 1})
+    currentDate = currentDate.minus({ days: 1 });
     count += 1;
   }
 
