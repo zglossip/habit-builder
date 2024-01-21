@@ -23,6 +23,7 @@ export const useDb = async () => {
                 REWARD TEXT
             );
         `);
+
   await db.execute(`
             CREATE TABLE IF NOT EXISTS PROGRESS(
                 COUNTER_ID INTEGER,

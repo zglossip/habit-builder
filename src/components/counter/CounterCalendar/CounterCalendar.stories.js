@@ -9,7 +9,7 @@ import { FAILURE, SUCCESS } from "./calendarColors";
 //STUB
 
 export const stubCounterCalendarService = (
-  currentDateString= ref(DateTime.now().toFormat("yyyy-MM-dd")),
+  currentDateString = ref(DateTime.now().toFormat("yyyy-MM-dd")),
   calendarOptions = ref([]),
 ) => {
   provide(INJECTION_KEY, () => ({
