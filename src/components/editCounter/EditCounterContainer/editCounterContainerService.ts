@@ -48,7 +48,7 @@ export const useEditCounterContainerService = (
           params: { counterId },
         }),
       )
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   const onCancel = () => {

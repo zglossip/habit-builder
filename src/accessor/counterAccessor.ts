@@ -35,29 +35,40 @@ export const getCounters = async (): Promise<Counter[]> => {
 
   const result = await db.query("SELECT ID, NAME, GOAL, REWARD FROM COUNTER");
   if (result.values) {
-    return result.values.map((c) => {
-      const id: number = c.ID;
-      const name: string = c.NAME;
-      const goal: number = c.GOAL;
-      const reward: string = c.REWARD;
-      const progress: Progress[] = [];
-      //const progressResult = await db.query('SELECT DATE, SUCCESS FROM PROGRESS WHERE COUNTER_ID = ?', [id])
-      return {
-        id,
-        name,
-        goal,
-        reward,
-        progress,
-      };
-    });
+    return Promise.all(
+      result.values.map(async (c) => {
+        const progressResult = await db.query(
+          "SELECT DATE, SUCCESS FROM PROGRESS WHERE COUNTER_ID = ?",
+          [c.ID],
+        );
+        const progress: Progress[] = progressResult.values
+          ? progressResult.values.map((v) => ({
+              date: DateTime.fromISO(v.DATE),
+              success: v.SUCCESS === "T",
+            }))
+          : [];
+        return {
+          id: c.ID,
+          name: c.NAME,
+          goal: c.GOAL,
+          reward: c.REWARD,
+          progress,
+        };
+      }),
+    );
   }
 
   return [];
 };
 
 export const saveCounter = async (counter: Counter): Promise<number> => {
-  console.log("saving", counter);
-  return 100;
+  const db = await useDb();
+  const result = await db.run(
+    "INSERT INTO COUNTER(NAME, GOAL, REWARD) VALUES (?, ?, ?)",
+    [counter.name, counter.goal, counter.reward],
+  );
+
+  return Number(result.changes?.lastId);
 };
 
 export const saveSuccess = async (counterId: number, date: DateTime) => {
