@@ -72,9 +72,25 @@ export const saveCounter = async (counter: Counter): Promise<number> => {
 };
 
 export const saveSuccess = async (counterId: number, date: DateTime) => {
-  console.log("Saving", counterId, date);
+  const db = await useDb();
+  await db.run("DELETE FROM PROGRESS WHERE COUNTER_ID = ? AND DATE = ?", [
+    counterId,
+    date.toFormat("yyyy-MM-dd"),
+  ]);
+  await db.run(
+    "INSERT INTO PROGRESS(COUNTER_ID, DATE, SUCCESS) VALUES (?, ?, 'T')",
+    [counterId, date.toFormat("yyyy-MM-dd")],
+  );
 };
 
 export const saveFaillure = async (counterId: number, date: DateTime) => {
-  console.log("Saving", counterId, date);
+  const db = await useDb();
+  await db.run("DELETE FROM PROGRESS WHERE COUNTER_ID = ? AND DATE = ?", [
+    counterId,
+    date.toFormat("yyyy-MM-dd"),
+  ]);
+  await db.run(
+    "INSERT INTO PROGRESS(COUNTER_ID, DATE, SUCCESS) VALUES (?, ?, 'F')",
+    [counterId, date.toFormat("yyyy-MM-dd")],
+  );
 };

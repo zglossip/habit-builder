@@ -16,7 +16,7 @@ interface Props {
 
 const props = defineProps<Props>();
 
-const { currentDate } = toRefs(props);
+const { counter, currentDate } = toRefs(props);
 
 //EMITS
 
@@ -30,7 +30,7 @@ const emitDateUpdate = (date: DateTime) => emit("update:counter-date", date);
 const { currentDateString, calendarOptions, onDateUpdate } = inject(
   INJECTION_KEY,
   useCounterCalendarService,
-)(props.counter, currentDate, emitDateUpdate);
+)(counter, currentDate, emitDateUpdate);
 </script>
 
 <template>

@@ -21,25 +21,29 @@ export const useCounterContainerService = (
   const counter: Ref<Counter> = ref(defaultCounter);
   const currentDate: Ref<DateTime> = ref(DateTime.now());
 
-  getCounter(counterId)
-    .then((response: Counter) => (counter.value = response))
-    .catch((err) => console.error(err));
+  const resetCounter = () => {
+    getCounter(counterId)
+      .then((response: Counter) => (counter.value = response))
+      .catch((err) => console.error(err));
+  };
 
   const onSuccess = () => {
     saveSuccess(counterId, currentDate.value)
-      .then(() => console.log("Saved successfully"))
+      .then(resetCounter)
       .catch((err) => console.error(err));
   };
 
   const onFailure = () => {
     saveFaillure(counterId, currentDate.value)
-      .then(() => console.log("Saved successfully"))
+      .then(resetCounter)
       .catch((err) => console.error(err));
   };
 
   const onUpdateCurrentDate = (date: DateTime) => {
     currentDate.value = date;
   };
+
+  resetCounter();
 
   return { counter, currentDate, onSuccess, onFailure, onUpdateCurrentDate };
 };

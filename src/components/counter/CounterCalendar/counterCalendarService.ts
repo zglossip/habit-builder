@@ -1,19 +1,19 @@
 import { Counter } from "@/interfaces/counter";
 import { DatetimeHighlight } from "@ionic/core";
 import { DateTime } from "luxon";
-import { ComputedRef, Ref, computed, ref } from "vue";
+import { ComputedRef, Ref, computed } from "vue";
 import { FAILURE, SUCCESS } from "./calendarColors";
 
 export const INJECTION_KEY = Symbol();
 
 interface CounterCalendarService {
   currentDateString: ComputedRef<string>;
-  calendarOptions: Ref<DatetimeHighlight[]>;
+  calendarOptions: ComputedRef<DatetimeHighlight[]>;
   onDateUpdate: (input: string) => void;
 }
 
 export const useCounterCalendarService = (
-  counter: Counter,
+  counter: Ref<Counter>,
   currentDate: Ref<DateTime>,
   emitDateUpdate: (date: DateTime) => void,
 ): CounterCalendarService => {
@@ -21,8 +21,8 @@ export const useCounterCalendarService = (
     currentDate.value.toFormat("yyyy-MM-dd"),
   );
 
-  const calendarOptions: Ref<DatetimeHighlight[]> = ref(
-    counter.progress.map((p) => ({
+  const calendarOptions: ComputedRef<DatetimeHighlight[]> = computed(() =>
+    counter.value.progress.map((p) => ({
       date: p.date.toFormat("yyyy-MM-dd"),
       textColor: p.success ? SUCCESS.text : FAILURE.text,
       backgroundColor: p.success ? SUCCESS.background : FAILURE.background,

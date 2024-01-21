@@ -9,7 +9,7 @@ const TEST_DATE_MONTH = 11;
 const TEST_DATE_DAY = 12;
 
 const setup = () => {
-  const counter = testCounter;
+  const counter = ref(testCounter);
   const currentDate = ref(
     DateTime.fromObject({
       year: TEST_DATE_YEAR,
