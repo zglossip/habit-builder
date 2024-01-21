@@ -5,7 +5,10 @@ import CounterListItem from "../CounterListItem/CounterListItem.vue";
 import calculateProgressCount from "../../../util/calculateProgressCount";
 import { IonList, IonItem, IonLabel } from "@ionic/vue";
 
-const { counters } = inject(INJECTION_KEY, useCounterListService)();
+const { counters, refresh } = inject(INJECTION_KEY, useCounterListService)();
+
+//EXPOSE
+defineExpose({refresh})
 </script>
 
 <template>
