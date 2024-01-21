@@ -25,7 +25,7 @@ const routes: Array<RouteRecordRaw> = [
     }),
   },
   {
-    path: "/counter",
+    path: "/counter/:counterId",
     name: "ViewCounter",
     component: () => import("../views/CounterView/CounterView.vue"),
     props: ({ params }) => ({
