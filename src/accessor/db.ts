@@ -4,18 +4,21 @@ import {
   SQLiteDBConnection,
 } from "@capacitor-community/sqlite";
 
-export const useDb = async () => {
-  const sqliteConnection = new SQLiteConnection(CapacitorSQLite);
-  const db: SQLiteDBConnection = await sqliteConnection.createConnection(
-    "habit_builder",
-    false,
-    "no-encryption",
-    1,
-    false,
-  );
-  await db.open();
+let db: SQLiteDBConnection;
 
-  await db.execute(`
+export const useDb = async () => {
+  if (!db) {
+    const sqliteConnection = new SQLiteConnection(CapacitorSQLite);
+    db = await sqliteConnection.createConnection(
+      "habit_builder",
+      false,
+      "no-encryption",
+      1,
+      false,
+    );
+    await db.open();
+
+    await db.execute(`
             CREATE TABLE IF NOT EXISTS COUNTER(
                 ID INTEGER PRIMARY KEY,
                 NAME TEXT,
@@ -24,7 +27,7 @@ export const useDb = async () => {
             );
         `);
 
-  await db.execute(`
+    await db.execute(`
             CREATE TABLE IF NOT EXISTS PROGRESS(
                 COUNTER_ID INTEGER,
                 DATE TEXT,
@@ -33,6 +36,7 @@ export const useDb = async () => {
                 FOREIGN KEY(COUNTER_ID) REFERENCES COUNTER(ID)
             );
         `);
+  }
 
   return db;
 };

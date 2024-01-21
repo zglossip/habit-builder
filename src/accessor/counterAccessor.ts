@@ -1,5 +1,4 @@
 import { Counter } from "@/interfaces/counter";
-import { testCounters } from "@/storybook/storybookData";
 import { DateTime } from "luxon";
 import { useDb } from "./db";
 import { Progress } from "@/interfaces/progress";
@@ -53,7 +52,7 @@ export const getCounters = async (): Promise<Counter[]> => {
     });
   }
 
-  return testCounters;
+  return [];
 };
 
 export const saveCounter = async (counter: Counter): Promise<number> => {
