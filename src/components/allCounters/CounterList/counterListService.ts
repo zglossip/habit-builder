@@ -17,7 +17,6 @@ export const useCounterListService = (): CounterListService => {
       .then((response) => (counters.value = response))
       .catch((err) => console.error(err));
   };
-
-  refresh();
+  
   return { counters, refresh };
 };

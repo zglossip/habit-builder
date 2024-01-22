@@ -41,13 +41,8 @@ export const useEditCounterContainerService = (
   };
 
   const onSave = () => {
-    saveCounter(counter.value)
-      .then((counterId: number) =>
-        $router.push({
-          name: "ViewCounter",
-          params: { counterId },
-        }),
-      )
+    saveCounter(counter.value, Boolean(id))
+      .then(() => $router.go(-1))
       .catch((err) => console.error(err));
   };
 

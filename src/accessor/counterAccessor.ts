@@ -61,14 +61,23 @@ export const getCounters = async (): Promise<Counter[]> => {
   return [];
 };
 
-export const saveCounter = async (counter: Counter): Promise<number> => {
-  const db = await useDb();
-  const result = await db.run(
-    "INSERT INTO COUNTER(NAME, GOAL, REWARD) VALUES (?, ?, ?)",
-    [counter.name, counter.goal, counter.reward],
-  );
-
-  return Number(result.changes?.lastId);
+export const saveCounter = async (counter: Counter, isUpdate: boolean) => {
+  console.debug(isUpdate, JSON.stringify(counter))
+  if (isUpdate) {
+    const db = await useDb();
+    const result = await db.run(
+      "UPDATE COUNTER SET NAME = ?,  GOAL = ?, REWARD = ? WHERE ID = ?",
+      [counter.name, counter.goal, counter.reward, counter.id],
+    );
+    console.debug(JSON.stringify(result))
+  } else {
+    const db = await useDb();
+    await db.run("INSERT INTO COUNTER(NAME, GOAL, REWARD) VALUES (?, ?, ?)", [
+      counter.name,
+      counter.goal,
+      counter.reward,
+    ]);
+  }
 };
 
 export const saveSuccess = async (counterId: number, date: DateTime) => {

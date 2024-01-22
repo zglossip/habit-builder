@@ -22,6 +22,6 @@ const { navigate } = inject(INJECTION_KEY, useCounterListItemService)(props.id);
 <template>
   <ion-item :button="true" @click="navigate">
     <ion-label>{{ name }}</ion-label>
-    <ion-note slot="end">{{ progressCount }}</ion-note>
+    <ion-note slot="end">Current Streak : {{ progressCount }}</ion-note>
   </ion-item>
 </template>

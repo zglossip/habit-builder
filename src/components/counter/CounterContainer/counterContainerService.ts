@@ -13,6 +13,7 @@ interface CounterContainerService {
   onSuccess: () => void;
   onFailure: () => void;
   onUpdateCurrentDate: (date: DateTime) => void;
+  resetCounter: () => void;
 }
 
 export const useCounterContainerService = (
@@ -51,7 +52,5 @@ export const useCounterContainerService = (
     currentDate.value = date;
   };
 
-  resetCounter();
-
-  return { counter, currentDate, onSuccess, onFailure, onUpdateCurrentDate };
+  return { counter, currentDate, onSuccess, onFailure, onUpdateCurrentDate, resetCounter };
 };
