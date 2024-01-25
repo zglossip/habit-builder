@@ -52,5 +52,12 @@ export const useCounterContainerService = (
     currentDate.value = date;
   };
 
-  return { counter, currentDate, onSuccess, onFailure, onUpdateCurrentDate, resetCounter };
+  return {
+    counter,
+    currentDate,
+    onSuccess,
+    onFailure,
+    onUpdateCurrentDate,
+    resetCounter,
+  };
 };

@@ -1,10 +1,15 @@
 import { Progress } from "@/interfaces/progress";
 import { DateTime } from "luxon";
 
+const progressSortFn = (a: Progress, b: Progress) =>
+  a.date.diff(b.date).milliseconds;
+
 export default (progresses: Progress[]): number => {
   if (progresses.length === 0) {
     return 0;
   }
+
+  progresses.sort(progressSortFn);
 
   let count: number = 0;
   let currentDate: DateTime = DateTime.now();

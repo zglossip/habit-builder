@@ -16,10 +16,10 @@ While I may go back and get this application on the app store proper, at the mom
 
 I chose the following tech stack based on a mix of personal familiarity and convenience:
 
-* Ionic
-* Capacitor
-* Vue
-* Vite
-* Vitest
-* Typescript
-* SQLite
+- Ionic
+- Capacitor
+- Vue
+- Vite
+- Vitest
+- Typescript
+- SQLite

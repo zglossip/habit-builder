@@ -18,10 +18,16 @@ interface Props {
 const props = defineProps<Props>();
 
 //SERVICE
-const { counter, currentDate, onSuccess, onFailure, onUpdateCurrentDate, resetCounter } =
-  inject(INJECTION_KEY, useCounterContainerService)(props.counterId);
+const {
+  counter,
+  currentDate,
+  onSuccess,
+  onFailure,
+  onUpdateCurrentDate,
+  resetCounter,
+} = inject(INJECTION_KEY, useCounterContainerService)(props.counterId);
 
-  //EXPOSE
+//EXPOSE
 defineExpose({ resetCounter });
 </script>
 

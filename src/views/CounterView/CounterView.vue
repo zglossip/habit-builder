@@ -18,7 +18,9 @@ interface Props {
 defineProps<Props>();
 
 //REFRESH
-const counterContainer = ref<InstanceType<typeof CounterContainer> | null>(null);
+const counterContainer = ref<InstanceType<typeof CounterContainer> | null>(
+  null,
+);
 onIonViewDidEnter(() => {
   counterContainer.value?.resetCounter();
 });
@@ -32,7 +34,7 @@ onIonViewDidEnter(() => {
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <CounterContainer :counter-id="counterId" ref="counterContainer"/>
+      <CounterContainer :counter-id="counterId" ref="counterContainer" />
     </ion-content>
   </ion-page>
 </template>
